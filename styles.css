@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+    margin-block: 5px;
+}
+
+img {
+    width: 100%;
+}
+
+h4, h5 {
+    text-align: right;
+}
+
+.library {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.card {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+form {
+    
+    width: 30%;
+    /* border: 1px solid black; */
+}
+
+form div {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* form div:nth-child(4){
+    
+    justify-content: center;
+} */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.container p:last-of-type span {
+    border: 1px solid pink;
+    border-radius: 2px;
+    background-color: pink;
+}
