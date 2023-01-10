@@ -41,7 +41,7 @@ form.addEventListener('submit', (e) => {
 
 
 let myLibrary = [{
-    img: 'http://www.casualoptimist.com/wp-content/uploads/2020/09/fellowship-of-the-ring-illustration-johan-egerkrans-1000x1500.jpg',
+    img: 'https://cdn8.openculture.com/wp-content/uploads/2013/02/The-Fellowship-Of-The-Ring-Book-Cover-by-JRR-Tolkien_1-480.jpg',
     title: 'Lord of the rings',
     author: 'JRR Tolkien',
     pages: 654,
