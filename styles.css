@@ -23,20 +23,13 @@ h4, h5 {
 }
 
 form {
-    
-    width: 30%;
-    /* border: 1px solid black; */
+    width: 50%;
 }
 
 form div {
     display: flex;
     justify-content: space-between;
 }
-
-/* form div:nth-child(4){
-    
-    justify-content: center;
-} */
 
 .container {
     display: flex;
@@ -48,4 +41,8 @@ form div {
     border: 1px solid pink;
     border-radius: 2px;
     background-color: pink;
+}
+
+#cover {
+    text-align: right;
 }

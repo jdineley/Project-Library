@@ -9,9 +9,9 @@ showFormButton.addEventListener('click', (e) => {
         form.style.display = 'none';
     }
 })
-
-function Book(title, author, pages, read) {
-    this.img = "imgs/800px-To_Kill_a_Mockingbird_(first_edition_cover).jpeg";
+// "imgs/800px-To_Kill_a_Mockingbird_(first_edition_cover).jpeg"
+function Book(img, title, author, pages, read) {
+    this.img = img;
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -19,7 +19,7 @@ function Book(title, author, pages, read) {
 }
 
 let changeRead = (e, i) => {
-    console.log(e.target, i);
+    console.log(e.target, i, this);
     let readState;
        if(e.target.innerText === 'yes'){
             readState = false;
@@ -30,24 +30,18 @@ let changeRead = (e, i) => {
     populateLibrary();
 }
 
-Book.prototype.changeRead = changeRead;
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    let {title, author, pages, read} = e.currentTarget
-    if(read.value === 'on'){
-        read = true;
-    } else {
-        read = false;
-    }
-    let newBook = new Book(title.value, author.value, pages.value, read)
+    let {cover, title, author, pages, read} = e.currentTarget
+    let newBook = new Book(cover.value, title.value, author.value, pages.value, read.checked)
     myLibrary.push(newBook);
     populateLibrary();
 })
 
 
 let myLibrary = [{
-    img: 'imgs/800px-To_Kill_a_Mockingbird_(first_edition_cover).jpeg',
+    img: 'http://www.casualoptimist.com/wp-content/uploads/2020/09/fellowship-of-the-ring-illustration-johan-egerkrans-1000x1500.jpg',
     title: 'Lord of the rings',
     author: 'JRR Tolkien',
     pages: 654,
@@ -61,21 +55,21 @@ let myLibrary = [{
     read: true
 },
 {
-    img: 'imgs/800px-To_Kill_a_Mockingbird_(first_edition_cover).jpeg',
+    img: 'https://i.etsystatic.com/25126483/r/il/826fdb/2932014615/il_794xN.2932014615_7vba.jpg',
     title: '1984',
     author: 'George Orwell',
     pages: 635,
     read: false
 },
 {
-    img: 'imgs/800px-To_Kill_a_Mockingbird_(first_edition_cover).jpeg',
+    img: 'https://almabooks.com/wp-content/uploads/2016/10/9781847493699.jpg',
     title: 'Pride and Prejudice',
     author: 'Jane Austen',
     pages: 805,
     read: false
 },
 {
-    img: 'imgs/800px-To_Kill_a_Mockingbird_(first_edition_cover).jpeg',
+    img: 'https://m.media-amazon.com/images/I/51MjPyuVqRL._SX323_BO1,204,203,200_.jpg',
     title: 'Harry Potter and the Philosophers Stone',
     author: 'JK Rowling',
     pages: 356,
@@ -108,7 +102,7 @@ function populateLibrary(){
         let pageSpan = document.createElement('span');
         pageSpan.textContent = book.pages;
         let read = document.createElement('p');
-        read.textContent = 'Read:  '
+        read.textContent = '(click to change*)  Read:  '
         let readSpan = document.createElement('span');
         readSpan.textContent = book.read ? 'yes' : 'no'
         let del = document.createElement('button');
