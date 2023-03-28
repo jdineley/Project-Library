@@ -10,16 +10,17 @@ showFormButton.addEventListener('click', (e) => {
     }
 })
 // "imgs/800px-To_Kill_a_Mockingbird_(first_edition_cover).jpeg"
-function Book(img, title, author, pages, read) {
-    this.img = img;
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
+class Book {
+    constructor(img, title, author, pages, read) {
+        this.img = img;
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    } 
 }
-
-let changeRead = (e, i) => {
-    console.log(e.target, i, this);
+    let changeRead = (e, i) => {
+        console.log(e.target, i, this);
     let readState;
        if(e.target.innerText === 'yes'){
             readState = false;
