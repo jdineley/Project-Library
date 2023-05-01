@@ -26,10 +26,18 @@ form {
     width: 50%;
 }
 
-form div {
+form div:first-child {
+    justify-content: end;
+}
+
+form > div {
     display: flex;
     justify-content: space-between;
 }
+form > div > div {
+    display: flex;
+}
+
 
 .container {
     display: flex;
@@ -46,3 +54,15 @@ form div {
 #cover {
     text-align: right;
 }
+sup{
+    margin-left: 5px;
+}
+
+input[type="checkbox"] {
+    margin-right: 12px;
+}
+
+.inline-validation-message {
+    color: red;
+}
+

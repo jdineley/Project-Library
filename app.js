@@ -1,6 +1,7 @@
 let showFormButton = document.querySelector('#add-book');
 let form = document.querySelector('form');
 let library = document.querySelector('.library');
+let urlInput = document.querySelector('#cover');
 
 showFormButton.addEventListener('click', (e) => {
     if(form.style.display === 'none'){
@@ -9,6 +10,18 @@ showFormButton.addEventListener('click', (e) => {
         form.style.display = 'none';
     }
 })
+
+document.addEventListener('blur', function(e) {
+    console.log('blur', e.target)
+    const isValid = e.target.validity.valid;
+    const message = e.target.validationMessage;
+    const connectedValidationId = e.target.getAttribute('aria-describedby');
+    const connectedValidation = connectedValidationId ? document.getElementById(connectedValidationId) : false;
+
+    if(connectedValidation && message && !isValid) connectedValidation.innerHTML = message;
+    else connectedValidation.innerText = ''
+}, true)
+
 // "imgs/800px-To_Kill_a_Mockingbird_(first_edition_cover).jpeg"
 class Book {
     constructor(img, title, author, pages, read) {
@@ -38,6 +51,8 @@ form.addEventListener('submit', (e) => {
     let newBook = new Book(cover.value, title.value, author.value, pages.value, read.checked)
     myLibrary.push(newBook);
     populateLibrary();
+    e.target.reset();
+    form.style.display = 'none'
 })
 
 
